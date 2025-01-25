@@ -18,7 +18,7 @@ function App() {
 
   const agregarPost = async () => {
     const post = { titulo, img: imgSrc, descripcion };
-    await axios.post(urlBaseServer + "/posts", post);
+    await axios.post(`${urlBaseServer}/posts`, post);
     getPosts();
   };
 
