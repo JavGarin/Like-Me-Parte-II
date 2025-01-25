@@ -7,8 +7,9 @@ const app = express();
 const PORT = 3000;
 
 app.use(cors());
-app.use(express.json()); // Habilitar el parsing de JSON
+app.use(express.json());// para que express entienda los JSON
 
+// la conexión a la base de datos
 const pool = new Pool({
     user: "postgres",
     host: "localhost",
@@ -33,7 +34,7 @@ app.post("/posts", async (req, res) => {
         const query = "INSERT INTO posts (titulo, img, descripcion) VALUES ($1, $2, $3) RETURNING *";
         const values = [titulo, img, descripcion];
         const result = await pool.query(query, values);
-        console.log("Post creado:", result.rows[0]); // Imprime el post creado
+        console.log("Post creado:", result.rows[0]); // imprime el post creado
         res.status(201).json(result.rows[0]);
     } catch (error) {
         console.error("Error al crear el post", error);
