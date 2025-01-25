@@ -17,7 +17,7 @@ const pool = new Pool({
     password: "12251225",
     port: 5432,
 });
-
+// ruta para obtener todos los posts
 app.get("/posts", async (req, res) => {
     try {
         const result = await pool.query("SELECT * FROM posts");
@@ -42,7 +42,7 @@ app.post("/posts", async (req, res) => {
     }
 });
 
-// Ruta para eliminar un post
+// ruta para eliminar un post
 app.delete("/posts/:id", async (req, res) => {
     const { id } = req.params;
     try {
@@ -54,7 +54,7 @@ app.delete("/posts/:id", async (req, res) => {
     }
 });
 
-// Ruta para dar like a un post
+// ruta para dar like a un post
 app.put("/posts/like/:id", async (req, res) => {
     const { id } = req.params;
     try {
