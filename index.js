@@ -9,7 +9,6 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-// la conexión a la base de datos
 const pool = new Pool({
     user: "postgres",
     host: "localhost",
